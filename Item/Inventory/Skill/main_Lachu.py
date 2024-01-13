@@ -34,7 +34,6 @@ def boss_window():
     monster_hp_label.config(text=f"{Monster.hp} / {Monster.hp}")
     window.tkraise()
 
-<<<<<<< HEAD
 def Town_window():
     log_delete_all()
     Town_frame.place(x=0,y=0)
@@ -42,32 +41,11 @@ def Town_window():
 
 def Forge_window():
     log_delete_all()
-    try:
-        for row in Forge_tree.get_children():
-            Forge_tree.delete(row)
-    except:
-        0
-    i = []
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-    for k in range(len(i)):
-        Forge_tree.insert('','end',values=i[k],iid=k)
     Forge_frame.place(x=0,y=0)
     Forge_frame.tkraise()
 
-
-=======
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
 def stat_window():
     log_delete_all()
-    try:
-        for row in stat_tree.get_children():
-            stat_tree.delete(row)
-    except:
-        0
-    stat_list = Player.return_list()        
-    for i in range(len(stat_list)):
-        stat_tree.insert('','end',values=stat_list[i],iid=i)
     stat_frame.place(x=0,y=0)
     sp_label.config(text=f"잔여 스탯 : {Player.stat_point}")
     stat_name_label.config(text=f"스탯 : X")
@@ -145,13 +123,8 @@ def inv_window():
     except:
         0
     i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-=======
     for j in inv.equip_inv.keys():
         i.append([j,inv.equip_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
     for k in range(len(i)):
         equip_tree.insert('','end',values=i[k],iid=k)
     inv_frame.tkraise()
@@ -165,13 +138,8 @@ def ck_tab(event):
         except:
             0
         i = []
-<<<<<<< HEAD
-        for j in inv.inv["equip_inv"].keys():
-            i.append([j,inv.inv["equip_inv"][j]["수량"]])
-=======
         for j in inv.equip_inv.keys():
             i.append([j,inv.equip_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
         for k in range(len(i)):
             equip_tree.insert('','end',values=i[k],iid=k)
     elif ck == "소비":
@@ -181,13 +149,8 @@ def ck_tab(event):
         except:
             0
         i = []
-<<<<<<< HEAD
-        for j in inv.inv["use_inv"].keys():
-            i.append([j,inv.inv["use_inv"][j]])
-=======
         for j in inv.use_inv.keys():
             i.append([j,inv.use_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
         for k in range(len(i)):
             use_tree.insert('','end',values=i[k],iid=k)
     elif ck == "재료":
@@ -197,13 +160,8 @@ def ck_tab(event):
         except:
             0
         i = []
-<<<<<<< HEAD
-        for j in inv.inv["material_inv"].keys():
-            i.append([j,inv.inv["material_inv"][j]])
-=======
         for j in inv.material_inv.keys():
             i.append([j,inv.material_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
         for k in range(len(i)):
             mat_tree.insert('','end',values=i[k],iid=k)
     elif ck == "기타":
@@ -213,24 +171,15 @@ def ck_tab(event):
         except:
             0
         i = []
-<<<<<<< HEAD
-        for j in inv.inv["common_inv"].keys():
-            i.append([j,inv.inv["common_inv"][j]])
-=======
         for j in inv.common_inv.keys():
             i.append([j,inv.common_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
         for k in range(len(i)):
             comm_tree.insert('','end',values=i[k],iid=k)
 
 def wpn_buy(event):
     selected = wpn_store_tree.focus()
     selected_name = wpn_store_tree.item(selected)["values"][0]
-<<<<<<< HEAD
-    result = store.wpn_buy(item.items[selected_name],item.items[selected_name]["스탯"])
-=======
     result = store.wpn_buy(selected_name)
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
     if result == -1:
         log_append("골드가 부족합니다!")
     else:
@@ -239,11 +188,7 @@ def wpn_buy(event):
 def arm_buy(event):
     selected = arm_store_tree.focus()
     selected_name = arm_store_tree.item(selected)["values"][0]
-<<<<<<< HEAD
-    result = store.arm_buy(item.items[selected_name],item.items[selected_name]["스탯"])
-=======
     result = store.arm_buy(selected_name)
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
     if result == -1:
         log_append("골드가 부족합니다!")
     else:
@@ -252,11 +197,7 @@ def arm_buy(event):
 def com_buy(event):
     selected = com_store_tree.focus()
     selected_name = com_store_tree.item(selected)["values"][0]
-<<<<<<< HEAD
-    result = store.com_buy(item.items[selected_name])
-=======
     result = store.com_buy(selected_name)
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
     if result == -1:
         log_append("골드가 부족합니다!")
     else:
@@ -392,13 +333,8 @@ def item_screen():
     except:
         0
     i = []
-<<<<<<< HEAD
-    for j in inv.inv["use_inv"].keys():
-        i.append([j,inv.inv["use_inv"][j]])
-=======
     for j in inv.use_inv.keys():
         i.append([j,inv.use_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
     for k in range(len(i)):
         item_tree.insert('','end',values=i[k],iid=k)
     item_list_frame.tkraise()
@@ -419,13 +355,8 @@ def item_use(event):
     for row in item_tree.get_children():
             item_tree.delete(row)
     i = []
-<<<<<<< HEAD
-    for j in inv.inv["use_inv"].keys():
-        i.append([j,inv["use_inv"][j]])
-=======
     for j in inv.use_inv.keys():
         i.append([j,inv.use_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
     for k in range(len(i)):
         item_tree.insert('','end',values=i[k],iid=k)
     window.tkraise()
@@ -472,7 +403,6 @@ def Adrian_mountain():
         log_append("아드리안 설산")
 
 def Adrian_town():
-<<<<<<< HEAD
     name = log_list.get(1.0,1.7)
     if name == "아드리안 왕국":
         Town_window()
@@ -485,15 +415,8 @@ def Adrian_town():
         log_append("적정 레벨 : 0Lv")
         log_append("")
         log_append("아드리안 왕국")
-=======
-    log_delete_all()
-    log_append("입장")
-    log_append("")
-    log_append("설명 : 주변에 몬스터가 약해 평화로운 마을이다. 초보 모험가에게 알맞은 왕국으로 불리운다.")
-    log_append("")
-    log_append("아드리안 왕국")
 
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
+
 
 def stat_name_clicked(event):
     selected = stat_tree.focus()
@@ -531,7 +454,7 @@ def statup_check():
         stat_tree.delete(row)
     stat_list = Player.return_list()
     stat_amount_label.config(text="소모 잔여 스탯 : 0")
-    sp_label.config(text=f"잔여 스탯 : {Player.stat_point}")     
+    sp_label.config(text=f"잔여 스탯 : {Player.stat_point}")        
     for i in range(len(stat_list)):
         stat_tree.insert('','end',values=stat_list[i],iid=i)
 
@@ -586,240 +509,9 @@ def mission_detail(event):
         log_append("")
         log_append("*********************************************************")
 
-def equip(event):
-    selected = equip_tree.focus()
-    selected_name = equip_tree.item(selected)["values"][0]
-<<<<<<< HEAD
-    inv.equip(inv.inv["equip_inv"][selected_name])
-    Player.arm_stat(item.items[selected_name]["수량"])
-    inv.equip_remove(inv[selected_name])
-    helmet_label.config(text=f"모자 : {inv.inv['equipped_inv']['helmet']}")
-    chestplate_label.config(text=f"상의 : {inv.inv['equipped_inv']['chestplate']}")
-    glove_label.config(text=f"장갑 : {inv.inv['equipped_inv']['glove']}")
-    leggings_label.config(text=f"하의 : {inv.inv['equipped_inv']['leggings']}")
-    boots_label.config(text=f"신발 : {inv.inv['equipped_inv']['boots']}")
-    weapon_label.config(text=f"무기 : {inv.inv['equipped_inv']['weapon']}")
-=======
-    arm_inv.equip(selected_name)
-    Player.arm_stat(item.wearable[selected_name])
-    inv.equip_remove(selected_name)
-    helmet_label.config(text=f"모자 : {arm_inv.arm_equipped['helmet']}")
-    chestplate_label.config(text=f"상의 : {arm_inv.arm_equipped['chestplate']}")
-    glove_label.config(text=f"장갑 : {arm_inv.arm_equipped['glove']}")
-    leggings_label.config(text=f"하의 : {arm_inv.arm_equipped['leggings']}")
-    boots_label.config(text=f"신발 : {arm_inv.arm_equipped['boots']}")
-    weapon_label.config(text=f"무기 : {arm_inv.weapon_equipped['main']}")
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    try:
-        for row in equip_tree.get_children():
-            equip_tree.delete(row)
-    except:
-        0
-    i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-=======
-    for j in inv.equip_inv.keys():
-        i.append([j,inv.equip_inv[j]])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-
-def helmet_unequip(event):
-    name = helmet_label.cget("text").split(":")[1][1:]
-<<<<<<< HEAD
-    inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.items[name]["스탯"])
-=======
-    arm_inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.wearable[name])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    try:
-        for row in equip_tree.get_children():
-            equip_tree.delete(row)
-    except:
-        0
-    i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    helmet_label.config(text=f"모자 : {inv.inv['equipped_inv']['helmet']}")
-
-def chestplate_unequip(evnet):
-    name = chestplate_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.items[name]["스탯"])
-=======
-    for j in inv.equip_inv.keys():
-        i.append([j,inv.equip_inv[j]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    helmet_label.config(text=f"모자 : {arm_inv.arm_equipped['helmet']}")
-
-def chestplate_unequip(evnet):
-    name = chestplate_label.cget("text").split(":")[1][1:]
-    arm_inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.wearable[name])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    try:
-        for row in equip_tree.get_children():
-            equip_tree.delete(row)
-    except:
-        0
-    i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    chestplate_label.config(text=f"상의 : {inv.inv['equipped_inv']['chestplate']}")
-    
-def leggings_unequip(event):
-    name = leggings_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.items[name]["스탯"])
-=======
-    for j in inv.equip_inv.keys():
-        i.append([j,inv.equip_inv[j]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    chestplate_label.config(text=f"상의 : {arm_inv.arm_equipped['chestplate']}")
-    
-def leggings_unequip(event):
-    name = leggings_label.cget("text").split(":")[1][1:]
-    arm_inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.wearable[name])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    try:
-        for row in equip_tree.get_children():
-            equip_tree.delete(row)
-    except:
-        0
-    i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    leggings_label.config(text=f"하의 : {inv.inv['equipped_inv']['leggings']}")
-
-def glove_unequip(event):
-    name = glove_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.items[name]["스탯"])
-=======
-    for j in inv.equip_inv.keys():
-        i.append([j,inv.equip_inv[j]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    leggings_label.config(text=f"하의 : {arm_inv.arm_equipped['leggings']}")
-
-def glove_unequip(event):
-    name = glove_label.cget("text").split(":")[1][1:]
-    arm_inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.wearable[name])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    try:
-        for row in equip_tree.get_children():
-            equip_tree.delete(row)
-    except:
-        0
-    i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    glove_label.config(text=f"장갑 : {inv.inv['equipped_inv']['glove']}")
-
-def boots_unequip(event):
-    name = boots_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.items[name]["스탯"])
-=======
-    for j in inv.equip_inv.keys():
-        i.append([j,inv.equip_inv[j]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    glove_label.config(text=f"장갑 : {arm_inv.arm_equipped['glove']}")
-
-def boots_unequip(event):
-    name = boots_label.cget("text").split(":")[1][1:]
-    arm_inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.wearable[name])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    try:
-        for row in equip_tree.get_children():
-            equip_tree.delete(row)
-    except:
-        0
-    i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    boots_label.config(text=f"신발 : {inv.inv['equipped_inv']['boots']}")
-
-def weapon_unequip(event):
-    name = weapon_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.items[name]["스탯"])
-=======
-    for j in inv.equip_inv.keys():
-        i.append([j,inv.equip_inv[j]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    boots_label.config(text=f"신발 : {arm_inv.arm_equipped['boots']}")
-
-def weapon_unequip(event):
-    name = weapon_label.cget("text").split(":")[1][1:]
-    arm_inv.unequip(name)
-    inv.equip_add(name)
-    Player.unequip_arm_stat(item.wearable[name])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-    try:
-        for row in equip_tree.get_children():
-            equip_tree.delete(row)
-    except:
-        0
-    i = []
-<<<<<<< HEAD
-    for j in inv.inv["equip_inv"].keys():
-        i.append([j,inv.inv["equip_inv"][j]["수량"]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    weapon_label.config(text=f"무기 : {inv.inv['equipped_inv']['weapon']}")
-=======
-    for j in inv.equip_inv.keys():
-        i.append([j,inv.equip_inv[j]])
-    for k in range(len(i)):
-        equip_tree.insert('','end',values=i[k],iid=k)
-    weapon_label.config(text=f"무기 : {arm_inv.weapon_equipped['main']}")
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-
-
 #-------------------------------------스탯-------------------------------------------
 Player.init()
 inv.init()
-<<<<<<< HEAD
-item.init()
-=======
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
 skillset = sk.init()
 #------------------------------------------------------------------------------------
 
@@ -996,7 +688,6 @@ Woods_Adrian_img = PhotoImage(file=".\\Img\\Woods.png")
 Mountain_Adrian_img = PhotoImage(file=".\\Img\\Mountain.png")
 #------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
 #--------------------------------------왕국------------------------------------------
 Town_frame = Frame(window1, width=500, height=500, relief="flat", background="white")
 wpn_button = Button(Town_frame, text="상점", width=32, height=6, command=wpn_store_window, font=("Aria",15))
@@ -1010,19 +701,17 @@ wpn_button.place(x=70, y=335)
 #--------------------------------------대장간----------------------------------------
 Forge_frame = Frame(window1, width=500, height=500, relief="flat", background="white")
 Forge_frame.place(x=0,y=0)
-Forge_tree = ttk.Treeview(Forge_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=4)
+equip_inv_frame = Frame(Forge_frame, background="white")
+Forge_tree = ttk.Treeview(equip_inv_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=4)
 Forge_tree.place(x=5,y=10)
 
-Forge_tree.column("name",anchor="center",width=350)
-Forge_tree.column("amount",anchor="center",width=140)
+Forge_tree.column("name",anchor="center",width=244)
+Forge_tree.column("amount",anchor="center",width=245)
 Forge_tree.heading("name",text="아이템",anchor="center")
 Forge_tree.heading("amount",text="수량",anchor="center")
 
 #------------------------------------------------------------------------------------
 
-
-=======
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
 #-------------------------------------가방-------------------------------------------
 inv_frame = Frame(window1,width=500,height=500,relief="flat",background="white")
 inv_frame.place(x=0,y=0)
@@ -1039,33 +728,11 @@ inv_note.add(use_inv_frame,text="소비")
 inv_note.add(mat_inv_frame,text="재료")
 inv_note.add(comm_inv_frame, text="기타")
 
-<<<<<<< HEAD
-helmet_label = Label(equip_inv_frame,text=f"모자 : {inv.inv['equipped_inv']['helmet']}", background="white", font=(None,12))
-chestplate_label = Label(equip_inv_frame,text=f"상의 : {inv.inv['equipped_inv']['chestplate']}", background="white", font=(None,12))
-glove_label = Label(equip_inv_frame,text=f"장갑 : {inv.inv['equipped_inv']['glove']}", background="white", font=(None,12))
-leggings_label = Label(equip_inv_frame,text=f"하의 : {inv.inv['equipped_inv']['leggings']}", background="white", font=(None,12))
-boots_label = Label(equip_inv_frame,text=f"신발 : {inv.inv['equipped_inv']['boots']}", background="white", font=(None,12))
-weapon_label = Label(equip_inv_frame,text=f"무기 : {inv.inv['equipped_inv']['weapon']}", background="white", font=(None,12))
-=======
-helmet_label = Label(equip_inv_frame,text=f"모자 : {arm_inv.arm_equipped['helmet']}", background="white", font=(None,12))
-chestplate_label = Label(equip_inv_frame,text=f"상의 : {arm_inv.arm_equipped['chestplate']}", background="white", font=(None,12))
-glove_label = Label(equip_inv_frame,text=f"장갑 : {arm_inv.arm_equipped['glove']}", background="white", font=(None,12))
-leggings_label = Label(equip_inv_frame,text=f"하의 : {arm_inv.arm_equipped['leggings']}", background="white", font=(None,12))
-boots_label = Label(equip_inv_frame,text=f"신발 : {arm_inv.arm_equipped['boots']}", background="white", font=(None,12))
-weapon_label = Label(equip_inv_frame,text=f"무기 : {arm_inv.weapon_equipped['main']}", background="white", font=(None,12))
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
-helmet_label.place(x=5,y=10)
-chestplate_label.place(x=5,y=40)
-glove_label.place(x=5,y=70)
-leggings_label.place(x=5,y=100)
-boots_label.place(x=5,y=130)
-weapon_label.place(x=5,y=160)
-
-equip_tree = ttk.Treeview(equip_inv_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=6)
+equip_tree = ttk.Treeview(equip_inv_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=10)
 use_tree = ttk.Treeview(use_inv_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=10)
 mat_tree = ttk.Treeview(mat_inv_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=10)
 comm_tree = ttk.Treeview(comm_inv_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=10)
-equip_tree.place(x=5,y=200)
+equip_tree.place(x=5,y=10)
 use_tree.place(x=5,y=10)
 mat_tree.place(x=5,y=10)
 comm_tree.place(x=5,y=10)
@@ -1086,14 +753,6 @@ comm_tree.column("name",anchor="center",width=244)
 comm_tree.column("amount",anchor="center",width=245)
 comm_tree.heading("name",text="아이템",anchor="center")
 comm_tree.heading("amount",text="수량",anchor="center")
-
-equip_tree.bind('<Double-Button>',equip)
-helmet_label.bind('<Double-Button>',helmet_unequip)
-chestplate_label.bind('<Double-Button>',chestplate_unequip)
-leggings_label.bind('<Double-Button>',leggings_unequip)
-glove_label.bind('<Double-Button>',glove_unequip)
-boots_label.bind('<Double-Button>',boots_unequip)
-weapon_label.bind('<Double-Button>',weapon_unequip)
 
 #------------------------------------------------------------------------------------
 
