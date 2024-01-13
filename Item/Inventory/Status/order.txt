@@ -1,0 +1,13 @@
+max_hp
+hp
+atk
+luk
+mag
+defend
+gold
+lv
+exp
+max_exp
+stat_point
+mana
+max_mana
