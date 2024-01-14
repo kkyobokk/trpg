@@ -103,6 +103,7 @@ def get(gexp,ggold):
     gold += ggold
 
 def arm_stat(stat):
+    print(stat)
     global max_hp,hp,atk,luk,mag,defend
     max_hp += stat[0]
     if max_hp < hp:
@@ -111,6 +112,7 @@ def arm_stat(stat):
     luk += stat[2]
     mag += stat[3]
     defend += stat[4]
+    print(atk)
 
 def unequip_arm_stat(stat):
     global max_hp,hp,atk,luk,mag,defend

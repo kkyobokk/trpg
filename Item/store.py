@@ -18,18 +18,18 @@ def arm_open():
 def com_open():
     return commons
 
-def wpn_buy(name,stat):
-    if name["가격"] > Player.gold:
+def wpn_buy(name,data):
+    if data["가격"] > Player.gold:
         return -1
-    Player.get(0,-name["가격"])
-    inv.equip_add(name,stat)
+    Player.get(0,-data["가격"])
+    inv.equip_add(name,data)
     return 1
 
-def arm_buy(name,stat):
-    if name["가격"] > Player.gold:
+def arm_buy(name,data):
+    if data["가격"] > Player.gold:
         return -1
-    Player.get(0,-name["가격"])
-    inv.equip_add(name,stat)
+    Player.get(0,-data["가격"])
+    inv.equip_add(name,data)
     return 1
 
 def com_buy(name):

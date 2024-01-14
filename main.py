@@ -198,7 +198,7 @@ def ck_tab(event):
 def wpn_buy(event):
     selected = wpn_store_tree.focus()
     selected_name = wpn_store_tree.item(selected)["values"][0]
-    result = store.wpn_buy(item.items[selected_name],item.items[selected_name]["스탯"])
+    result = store.wpn_buy(selected_name,item.items[selected_name])
     if result == -1:
         log_append("골드가 부족합니다!")
     else:
@@ -207,7 +207,7 @@ def wpn_buy(event):
 def arm_buy(event):
     selected = arm_store_tree.focus()
     selected_name = arm_store_tree.item(selected)["values"][0]
-    result = store.arm_buy(item.items[selected_name],item.items[selected_name]["스탯"])
+    result = store.arm_buy(selected_name,item.items[selected_name])
     if result == -1:
         log_append("골드가 부족합니다!")
     else:
@@ -529,9 +529,9 @@ def mission_detail(event):
 def equip(event):
     selected = equip_tree.focus()
     selected_name = equip_tree.item(selected)["values"][0]
-    inv.equip(inv.inv["equip_inv"][selected_name])
-    Player.arm_stat(item.items[selected_name]["수량"])
-    inv.equip_remove(inv[selected_name])
+    result = inv.equip(selected_name,inv.inv["equip_inv"][selected_name])
+    Player.arm_stat(inv.inv["equip_inv"][selected_name]["스탯"])
+    inv.equip_remove(selected_name)
     helmet_label.config(text=f"모자 : {inv.inv['equipped_inv']['helmet']}")
     chestplate_label.config(text=f"상의 : {inv.inv['equipped_inv']['chestplate']}")
     glove_label.config(text=f"장갑 : {inv.inv['equipped_inv']['glove']}")
