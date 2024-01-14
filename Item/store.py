@@ -18,7 +18,6 @@ def arm_open():
 def com_open():
     return commons
 
-<<<<<<< HEAD
 def wpn_buy(name,stat):
     if name["가격"] > Player.gold:
         return -1
@@ -37,25 +36,5 @@ def com_buy(name):
     if name["가격"] > Player.gold:
         return -1
     Player.get(0,-name["가격"])
-=======
-def wpn_buy(name):
-    if weapons[name] > Player.gold:
-        return -1
-    Player.get(0,-weapons[name])
-    inv.equip_add(name)
-    return 1
-
-def arm_buy(name):
-    if armors[name] > Player.gold:
-        return -1
-    Player.get(0,-armors[name])
-    inv.equip_add(name)
-    return 1
-
-def com_buy(name):
-    if commons[name] > Player.gold:
-        return -1
-    Player.get(0,-commons[name])
->>>>>>> 859928f8eb14e1b36927ada5b5ea8e966fcb71e1
     inv.use_add(name)
     return 1
