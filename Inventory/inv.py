@@ -45,50 +45,50 @@ def use(name):
 
 def equip(name,data):
     if data["종류"] == "상의":
-        if inv["equipped_inv"] == "없음":
+        if inv["equipped_inv"]["chestplate"] == "없음":
             inv["equipped_inv"]["chestplate"] = name
         else:
             return -1
     elif data["종류"] == "장갑":
-        if inv["equipped_inv"] == "없음":
+        if inv["equipped_inv"]["glove"] == "없음":
             inv["equipped_inv"]["glove"] = name
         else:
             return -1
     elif data["종류"] == "하의":
-        if inv["equipped_inv"] == "없음":
+        if inv["equipped_inv"]["leggings"] == "없음":
             inv["equipped_inv"]["leggings"] = name
         else:
             return -1
     elif data["종류"] == "신발":
-        if inv["equipped_inv"] == "없음":
+        if inv["equipped_inv"]["boots"] == "없음":
             inv["equipped_inv"]["boots"] = name
         else:
             return -1
     elif data["종류"] == "모자":
-        if inv["equipped_inv"] == "없음":
+        if inv["equipped_inv"]["helmet"] == "없음":
             inv["equipped_inv"]["helmet"] = name
         else:
             return -1
     elif data["종류"] == "주무기":
-        if inv["equipped_inv"] == "없음":
+        if inv["equipped_inv"]["weapon"] == "없음":
             inv["equipped_inv"]["weapon"] = name
         else:
             return -1
     else:
         return 0
 
-def unequip(name):
-    if name["부위"] == "상의":
+def unequip(data):
+    if data["종류"] == "상의":
         inv["equipped_inv"]["chestplate"] = "없음"
-    elif name["부위"] == "장갑":
+    elif data["종류"] == "장갑":
         inv["equipped_inv"]["glove"] = "없음"
-    elif name["부위"] == "하의":
+    elif data["종류"] == "하의":
         inv["equipped_inv"]["leggings"] = "없음"
-    elif name["부위"] == "신발":
+    elif data["종류"] == "신발":
         inv["equipped_inv"]["boots"] = "없음"
-    elif name["부위"] == "모자":
+    elif data["종류"] == "모자":
         inv["equipped_inv"]["helmet"] = "없음"
-    elif name["부위"] == "무기":
+    elif data["종류"] == "주무기":
         inv["equipped_inv"]["weapon"] = "없음"
     else:
         return 0

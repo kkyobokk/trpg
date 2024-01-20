@@ -54,7 +54,6 @@ def Forge_window():
     Forge_frame.place(x=0,y=0)
     Forge_frame.tkraise()
 
-
 def stat_window():
     log_delete_all()
     try:
@@ -82,7 +81,6 @@ def mission_window():
     mission_tree.insert('','end',values=[mission.slime_step2["name"],mission.slime_step2["level"]],iid=1)
     mission_frame.place(x=0,y=0)
     mission_frame.tkraise()
-
 
 def store_window():
     log_delete_all()
@@ -551,8 +549,8 @@ def equip(event):
 
 def helmet_unequip(event):
     name = helmet_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
+    inv.unequip(item.items[name])
+    inv.equip_add(name,item.items[name])
     Player.unequip_arm_stat(item.items[name]["스탯"])
     try:
         for row in equip_tree.get_children():
@@ -568,8 +566,8 @@ def helmet_unequip(event):
 
 def chestplate_unequip(evnet):
     name = chestplate_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
+    inv.unequip(item.items[name])
+    inv.equip_add(name,item.items[name])
     Player.unequip_arm_stat(item.items[name]["스탯"])
     try:
         for row in equip_tree.get_children():
@@ -585,8 +583,8 @@ def chestplate_unequip(evnet):
     
 def leggings_unequip(event):
     name = leggings_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
+    inv.unequip(item.items[name])
+    inv.equip_add(name,item.items[name])
     Player.unequip_arm_stat(item.items[name]["스탯"])
     try:
         for row in equip_tree.get_children():
@@ -602,8 +600,8 @@ def leggings_unequip(event):
 
 def glove_unequip(event):
     name = glove_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
+    inv.unequip(item.items[name])
+    inv.equip_add(name,item.items[name])
     Player.unequip_arm_stat(item.items[name]["스탯"])
     try:
         for row in equip_tree.get_children():
@@ -619,8 +617,8 @@ def glove_unequip(event):
 
 def boots_unequip(event):
     name = boots_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
+    inv.unequip(item.items[name])
+    inv.equip_add(name,item.items[name])
     Player.unequip_arm_stat(item.items[name]["스탯"])
     try:
         for row in equip_tree.get_children():
@@ -636,8 +634,8 @@ def boots_unequip(event):
 
 def weapon_unequip(event):
     name = weapon_label.cget("text").split(":")[1][1:]
-    inv.unequip(name)
-    inv.equip_add(name)
+    inv.unequip(item.items[name])
+    inv.equip_add(name,item.items[name])
     Player.unequip_arm_stat(item.items[name]["스탯"])
     try:
         for row in equip_tree.get_children():
@@ -766,11 +764,8 @@ stat_reset.place(x=350,y=420)
 mission_frame = Frame(window1, width=500, height=500, relief="flat", background="white")
 mission_frame.place(x=0,y=0)
 
-
 mission_tree = ttk.Treeview(mission_frame, columns=["name","level"], displaycolumns=["name","level"],show="headings",padding=0,height=10)
 mission_tree.place(x=5,y=10)
-
-
 
 mission_tree.column("name",anchor="center",width=244)
 mission_tree.column("level",anchor="center",width=245)
@@ -779,7 +774,7 @@ mission_tree.heading("level",text="난이도",anchor="center")
 mission_tree.bind("<ButtonRelease-1>",mission_detail)
 
 #------------------------------------------------------------------------------------
-
+        
 #-------------------------------------상점-------------------------------------------
 #기본 상점
 store_frame = Frame(window1, width=500, height=500, relief="flat", background="white")
@@ -868,7 +863,7 @@ use_inv_frame = Frame(inv_frame,background="white")
 mat_inv_frame = Frame(inv_frame,background="white")
 comm_inv_frame = Frame(inv_frame,background="white")
 inv_note.add(equip_inv_frame, text="장비")
-inv_note.add(use_inv_frame,text="소비")
+inv_note.add(use_inv_frame,text="소비") 
 inv_note.add(mat_inv_frame,text="재료")
 inv_note.add(comm_inv_frame, text="기타")
 
