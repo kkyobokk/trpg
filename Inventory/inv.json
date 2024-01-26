@@ -95,7 +95,12 @@
     }
   },
   "material_inv": {},
-  "common_inv": {},
+  "common_inv": {
+    "일반 강화석" : 10,
+    "고급 강화석" : 9,
+    "희귀한 강화석" : 8,
+    "전설의 강화석" : 7
+  },
   "equipped_inv": {
     "helmet": "없음",
     "chestplate": "없음",

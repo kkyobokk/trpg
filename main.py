@@ -6,6 +6,7 @@ from Skill import *
 from Event import *
 from Inventory import *
 import shutil, winsound, os, random
+import json
 
 root = os.path.dirname(os.path.realpath(__file__))
 
@@ -41,6 +42,9 @@ def Town_window():
 
 def Forge_window():
     log_delete_all()
+    log_append("사용할 강화석 : X")
+    log_append("")
+    log_append("강화할 아이템 : X")
     try:
         for row in Forge_tree.get_children():
             Forge_tree.delete(row)
@@ -649,8 +653,25 @@ def weapon_unequip(event):
         equip_tree.insert('','end',values=i[k],iid=k)
     weapon_label.config(text=f"무기 : {inv.inv['equipped_inv']['weapon']}")
 
+def enhance_page_selected(event):
+    enhance_page_label.config(text=f"보유량 : {inv.inv['common_inv'][Forge_check.get()]}")
+    log_list.config(state="normal")
+    log_list.delete('3.0','3.end')
+    log_list.insert(3.0,f"사용할 강화석 : {Forge_check.get()}")
+    log_list.insert(4.0,"")
+    log_list.config(state="disabled")
 
-#-------------------------------------스탯-------------------------------------------
+def enhance_item_seleted(event):
+    selected = Forge_tree.focus()
+    selected_name = Forge_tree.item(selected)["values"][0]
+    log_list.config(state="normal")
+    log_list.delete('1.0','1.end')
+    log_list.insert(0.0,f"강화할 아이템 : {selected_name}")
+    log_list.insert(1.0,"")
+    log_list.config(state="disabled")
+
+
+#-------------------------------------초기화-----------------------------------------
 Player.init()
 inv.init()
 item.init()
@@ -662,6 +683,10 @@ window1 = Tk()
 window1.title("TRPG")
 window1.geometry("1000x500")
 window1.resizable(False,False)
+text_font = (None, '14')
+window1.option_add('*TCombobox*Listbox.font', text_font) 
+with open('./Probability/enforce_probability.json','r',encoding='UTF-8-sig') as f:
+    enhance_percent = json.load(f)
 #------------------------------------------------------------------------------------
 
 #-------------------------------------전투-------------------------------------------
@@ -840,7 +865,7 @@ wpn_button.place(x=70, y=335)
 #--------------------------------------대장간----------------------------------------
 Forge_frame = Frame(window1, width=500, height=500, relief="flat", background="white")
 Forge_frame.place(x=0,y=0)
-Forge_tree = ttk.Treeview(Forge_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=4)
+Forge_tree = ttk.Treeview(Forge_frame, columns=["name","amount"], displaycolumns=["name","amount"],show="headings",padding=0,height=5)
 Forge_tree.place(x=5,y=10)
 
 Forge_tree.column("name",anchor="center",width=350)
@@ -848,6 +873,17 @@ Forge_tree.column("amount",anchor="center",width=140)
 Forge_tree.heading("name",text="아이템",anchor="center")
 Forge_tree.heading("amount",text="수량",anchor="center")
 
+Forge_tree.bind('<Double-Button>',enhance_item_seleted)
+
+enhance_page = ["일반 강화석","고급 강화석","희귀한 강화석","전설의 강화석"]
+
+Forge_check = ttk.Combobox(Forge_frame, height=4, values=enhance_page, state="readonly", font=(None,14))
+Forge_check.set("강화석을 선택해주세요!")
+Forge_check.place(x=35,y=260)
+Forge_check.bind("<<ComboboxSelected>>",enhance_page_selected)
+
+enhance_page_label = Label(Forge_frame, text=f"보유량 : X", font=(None,14), background="white")
+enhance_page_label.place(x= 300, y= 260)
 #------------------------------------------------------------------------------------
 
 
