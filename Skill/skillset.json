@@ -1,0 +1,49 @@
+{
+     "파이어볼" : {
+        "enforce" : 0,
+        "Class" : ["마법사"],
+        "target" : "enemy",
+        "requiredMana" : 0,
+        "effect" : {
+            "damageType" : "magic",
+            "duration" : 0,
+            "damage" : 0
+        },
+        "etc" : null
+    },
+    "회복" : {
+        "enforce" : 0,
+        "Class" : ["성직자"],
+        "target" : "self",
+        "requiredMana" : 0,
+        "effect" : {
+            "heal" : 0
+        },
+        "etc" : null
+    },
+    "아이시클" : {
+        "enforce" : 0,
+        "Class" : ["마법사"],
+        "target" : "enemy",
+        "requiredMana" : 0,
+        "effect" : {
+            "duration" : 0,
+            "damageType" : "magic",
+            "damage" : 0,
+            "slow" : 0
+        },
+        "etc" : null
+    },
+    "찌르기" : {
+        "enforce" : 0,
+        "target" : "enemy",
+        "Class" : ["검사", "암살자"],
+        "requiredMana" : 0,
+        "effect" : {
+            "duration" : 0,
+            "damageType" : "normal",
+            "damage" : 0
+        },
+        "etc" : null
+    }
+}
