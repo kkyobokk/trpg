@@ -1,0 +1,34 @@
+{
+    "Slime1" : {
+        "name" : "슬라임 좀 잡아주세요",
+        "level" : 1,
+        "content" : {
+            "type" : "killMonster",
+            "info" : {
+                "RequiredItem" : "슬라임",
+                "Amount" : 10
+            }
+        },
+        "reward" : {
+            "Gold" : 1000,
+            "Item" : []
+        },
+        "detail" : "슬라임의 개체수가 많아져서 밭을 망치고 있어요 슬라임 20마리를 잡아서 개체수를 조절해 주세요"
+    },
+    "Slime2" : {
+        "name" : "포션 재료좀 모아주세요", 
+        "level" : 2, 
+        "content" : {
+            "type" : "getItem",
+            "info" : {
+                "RequiredItem" : "슬라임 점액",
+                "Amount" : 20
+            }
+        },
+        "reward" : {
+            "Gold" : 1000,
+            "Item" : [ ["소형 체력물약", 10] ]
+        },
+        "detail" : "포션을 제작하는데 슬라임 점액이 조금 부족해서 슬라임 점액을 조금만 모아주세요. 답례로 포션을 조금 드릴께요"
+    }
+}

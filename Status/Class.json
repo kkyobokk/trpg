@@ -1,0 +1,23 @@
+{
+    "모험가" : null,
+    "마법사" : {
+        "condition" : null,
+        "skills" : [],
+        "UpgradableClass" : []
+    },
+    "전사" : {
+        "condition" : null,
+        "skills" : [],
+        "UpgradableClass" : []
+    },
+    "궁수" : {
+        "condition" : null,
+        "skills" : [],
+        "UpgradableClass" : []
+    },
+    "암살자" : {
+        "condition" : null,
+        "skills" : [],
+        "UpgradableClass" : []
+    }
+}
