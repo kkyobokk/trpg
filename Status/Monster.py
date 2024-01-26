@@ -12,30 +12,30 @@ gold, exp = 0,0
 
 def slime(level):
     global max_hp, hp, atk, defend, critical, gold, exp
-    name = f"슬라임 Lv{level*level*level}"
-    max_hp = 10*level*level
-    hp = 10*level*level
+    name = f"슬라임 Lv{level**3}"
+    max_hp = 10*level**2
+    hp = 10*level**2
     atk = 7*level
-    defend = 2*level*level
+    defend = 2*level**2
     critical = 10
-    gold,exp = 10*level*level*level,10*level*level*level
+    gold,exp = 10*level**3,10*level**3
     return name
 
 def rock_slime(level):
     global max_hp, hp, atk, defend, critical, gold, exp
-    name = f"바위 슬라임 Lv{level*level*level}"
-    max_hp = 20*level*level
-    hp = 20*level*level
+    name = f"바위 슬라임 Lv{level**3}"
+    max_hp = 20*level**2
+    hp = 20*level**2
     atk = 5*level
-    defend = 4*level*level
+    defend = 4*level**2
     critical = 10
-    gold,exp = 40*level*level*level,20*level*level*level
+    gold,exp = 40*level**3,20*level**3
     return name
 
 def boss(level):
     global max_hp, hp, atk, defend, critical, gold, exp
-    max_hp = 1000*level*level
-    hp = 1000*level*level
+    max_hp = 1000*level**2
+    hp = 1000*level**2
     atk = 100*level
     defend = 100*level
     critical = 10
